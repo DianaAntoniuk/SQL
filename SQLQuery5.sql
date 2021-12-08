@@ -1,9 +1,10 @@
 /****** Скрипт для команды SelectTopNRows из среды SSMS  ******/
-CREATE TABLE Faculties 
+CREATE TABLE Universities
 (
-FacultyID int IDENTITY NOT NULL PRIMARY KEY,
-FacultyNumber int NOT NULL,
-UniversityID int NOT NULL FOREIGN KEY REFERENCES Universities (UniversityID)
+UniversityID int IDENTITY NOT NULL PRIMARY KEY,
+UniversityName varchar (100) NOT NULL,
+PlaceInUkraineRanking int NOT NULL,
+Adress varchar (50) NOT NULL
 )
 
 CREATE TABLE Students
@@ -12,6 +13,13 @@ StudentID int IDENTITY NOT NULL PRIMARY KEY,
 StudentName varchar (30) NOT NULL,
 Email varchar (30) NOT NULL,
 GroupNumber int NOT NULL
+)
+
+CREATE TABLE Faculties 
+(
+FacultyID int IDENTITY NOT NULL PRIMARY KEY,
+FacultyNumber int NOT NULL,
+UniversityID int NOT NULL FOREIGN KEY REFERENCES Universities (UniversityID)
 )
 
 CREATE TABLE FormOfEducation
